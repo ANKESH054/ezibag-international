@@ -41,7 +41,7 @@ nav {
   height: 3rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   background-color: var(--white-color);
@@ -70,7 +70,27 @@ nav .logo {
   justify-content: center;
   align-content: center;
   height: 100%;
-  margin-left: 5rem;
+  width: max-content;
+}
+
+nav .hamburger-menu {
+  background-color: red;
+  height: 10rem;
+  width: 10rem;
+}
+
+nav .hamburger-menu .iconOfMenu{
+  content: " ";
+  width: 10rem;
+  height: 0.5rem;
+  color: var(--primary-color);
+}
+
+nav .hamburger-menu .stateOfMenu {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  z-index: 2;
 }
 
 nav ul {
@@ -81,12 +101,14 @@ nav ul {
   flex-wrap: wrap;
   width: 60rem;
   height: 3rem;
+  max-height: auto;
+  background-color: var(--white-color);
 }
 
 nav ul li {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-content: center;
   flex-wrap: nowrap;
@@ -99,6 +121,7 @@ nav ul li a {
   color: var(--secoundary-color);
   font-size: 15px;
   height: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -140,8 +163,7 @@ nav .searchInput {
   align-items: center;
   border: 1px solid var(--grey-color);
   border-radius: 8px;
-  width: 12rem;
-  margin-right: 5rem;
+  width: fit-content;
 }
 
 nav .searchInput input:focus-visible {
