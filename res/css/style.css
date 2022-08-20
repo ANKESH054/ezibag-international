@@ -21,6 +21,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  flex-wrap: nowrap;
 }
 
 
@@ -90,7 +91,7 @@ nav ul li {
   align-content: center;
   flex-wrap: nowrap;
   height: 100%;
-  width: 18rem;
+  width: 16rem;
 }
 
 nav ul li a {
