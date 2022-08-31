@@ -10,10 +10,21 @@
   --frontview-vertical-image: url("../images/frontview_vertical.jpeg");
 }
 
+/* Global Declarations */
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0rem;
+  padding: 0rem;
   box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: var(--secoundary-color);
+  font-size: 20px;
+}
+
+p{
+  font-size: 22px;
 }
 
 body {
@@ -34,6 +45,41 @@ header {
   background-size: cover;
 }
 
+/* Utility Starts Here */
+
+.dropdown-menu{
+  display: none;
+}
+
+.dropdown:hover > .dropdown-menu{
+  background-color: var(--white-color);
+  box-shadow: 1px 16px 14px var(--primary-color);
+  border-radius: 0px 0px 7px 7px;
+  position: absolute;
+  top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 9rem;
+  height: 7rem;
+}
+
+.dropdown-menu > p{
+  width: 100%;
+  height: calc(100%/3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown-menu > p:hover{
+  background-color: var(--shadow-color);
+}
+
+/* Utility Ends Here */
+
 nav {
   position: fixed;
   top: 0;
@@ -49,8 +95,8 @@ nav {
 
 nav .logo .title {
   position: relative;
-  bottom: 9px;
-  left: 43px;
+  bottom: 0.6rem;
+  left: 3.25rem;
 }
 
 nav .logo .title-suffix-pre {
@@ -60,7 +106,7 @@ nav .logo .title-suffix-pre {
 
 nav .logo .title-suffix-pre b {
   color: var(--primary-color);
-  font-size: 40px;
+  font-size: 2.43rem;
   font-weight: 100;
 }
 
@@ -73,17 +119,38 @@ nav .logo {
   width: max-content;
 }
 
+/* Hamburger-menu's CSS STARTS HERE */
 nav .hamburger-menu {
-  background-color: red;
-  height: 10rem;
-  width: 10rem;
+  height: 3rem;
+  width: 3rem;
+  display: none;
 }
 
 nav .hamburger-menu .iconOfMenu{
   content: " ";
-  width: 10rem;
-  height: 0.5rem;
-  color: var(--primary-color);
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--secoundary-color);
+  position: absolute;
+  top: 1.5rem;
+}
+
+nav .hamburger-menu .iconOfMenu::after{
+  content: " ";
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--secoundary-color);
+  position: absolute;
+  bottom: 1rem;
+}
+
+nav .hamburger-menu .iconOfMenu::before{
+  content: " ";
+  width: 2.5rem;
+  height: 2px;
+  background-color: var(--secoundary-color);
+  position: absolute;
+  top: 1rem;
 }
 
 nav .hamburger-menu .stateOfMenu {
@@ -91,7 +158,27 @@ nav .hamburger-menu .stateOfMenu {
   width: 100%;
   opacity: 0;
   z-index: 2;
+  position: relative;
+  top: 0;
+  left: 42px;
 }
+
+nav .hamburger-menu input[type='checkbox']:checked ~ .iconOfMenu:before{
+  transform: rotate(45deg);
+  top: 0;
+}
+
+nav .hamburger-menu input[type='checkbox']:checked ~ .iconOfMenu:after{
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+nav .hamburger-menu input[type='checkbox']:checked ~ .iconOfMenu{
+  background-color: var(--transparent-color);
+}
+
+/* Hamburger-menu's ENDS HERE */
+
 
 nav ul {
   display: flex;
@@ -116,7 +203,7 @@ nav ul li {
   width: 16rem;
 }
 
-nav ul li a {
+nav ul li > a {
   text-decoration: none;
   color: var(--secoundary-color);
   font-size: 15px;
@@ -243,3 +330,87 @@ main section .article .article-text{
 main section .article .article-text p{
   font-size: 20px;
 }
+
+
+footer{
+  position: static;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--primary-color);
+}
+
+
+/* CSS For Responsive Design. */
+
+/* For Mobile devices */
+@media screen and (max-width: 480px) {
+
+  a{
+    font-size: 16px;
+  }
+  
+  p{
+    font-size: 18px;
+  }
+  
+  header{
+    background-size: contain;
+  }
+  
+  nav .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+  }
+
+  main section .article {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  main section .article .article-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+
+  main section .article .article-text {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
+    height: 90%;
+    overflow-wrap: break-word;
+    overflow: hidden;
+  }
+
+  main section .article .article-text > p{
+    font-size: 16px;
+    height: 100%;
+    overflow-wrap: normal;
+    overflow-y: hidden;
+  }
+}
+
+/* For iPads, Tablets */
+@media screen and (max-width: 768px) {
+}
+
+/* For Small screens, laptops */
+@media screen and (max-width: 1024px) {
+}
+
+/* For Desktops, large screens */
+@media screen and (max-width: 1200px) {
+}
+
+/* For  Extra large screens, TV */
+@media screen and (min-width: 1201px) {
+}
+
+/* CSS For Responsive Design ENDS HERE */
